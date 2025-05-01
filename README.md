@@ -1,4 +1,4 @@
-Here is a tutorial on how to use this github if you are new to github. 
+# Here is a tutorial on how to use this github if you are new to github. 
 
 Step 1: open vs code and open a empty c drive, d drive, whichever.
 Step 2: In the terminal you're going to type in "git clone https://github.com/looksorn789/My-Daily-Journal.git"
