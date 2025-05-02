@@ -1,14 +1,14 @@
+import { Link } from "react-router-dom";
 import "../css/LandingPage.css";
-import Header from "../components/Header";
 
 function LandingPage() {
-    return(
-        <div>
-        <Header />
-        <div>
-            <p> HELLO </p>
-        </div>
-        </div>
-    )
+  return (
+    <div className="landing-page">
+      <Link to="/home" className="home-link">
+        Click this to go to home
+      </Link>
+    </div>
+  );
 }
+
 export default LandingPage;
