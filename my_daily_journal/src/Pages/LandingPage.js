@@ -7,7 +7,7 @@ function LandingPage() {
       {/* Sticky Navbar */}
       <nav className="navbar">
         <h1 className="site-title">My DailyJournal</h1>
-        <Link to="/signup" className="cta-button">
+        <Link to="/home" className="cta-button">
           Start Journaling Today!
         </Link>
       </nav>
