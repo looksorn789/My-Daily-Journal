@@ -69,3 +69,39 @@
   color: #8a8a9e;
   cursor: pointer;
 }
+
+.dropdown-menu {
+  position: absolute;
+  top: 90px;
+  right: 30px;
+  background-color: #c6dcef;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #8a8a9e;
+  z-index: 999;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: #8a8a9e;
+  transition: color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+  color: #1b1b4d;
+}
+
+.theme-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+

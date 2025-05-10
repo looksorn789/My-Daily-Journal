@@ -1,0 +1,145 @@
+/* Container that holds the journal and polaroids side-by-side */
+.notebook-container {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    padding: 120px 30px 40px;
+    background-color: #e9f0fc;
+    position: relative;
+    gap: 30px;
+    height: 100vh;
+    box-sizing: border-box;
+    gap: 0;
+  }
+  
+  /* Each notebook page (journal and photos) */
+  .notebook-page {
+    flex: 1;
+    background-color: #fffccf;
+    border: 5px solid #1b1b4d;
+    border-radius: 20px;
+    padding: 30px 40px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    position: relative;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .notebook-page::-webkit-scrollbar {
+    width: 8px;
+  }
+  .notebook-page::-webkit-scrollbar-thumb {
+    background-color: #aaa;
+    border-radius: 4px;
+  }
+
+  .notebook-container::before,
+  .notebook-container::after {
+    content: '';
+    width: 15px;
+    background-color: #1b1b4d;
+    border-radius: 20px;
+    margin: 0 5px;
+}
+
+  .notebook-container::between {
+    content: '';
+    width: 2px;
+    background-color: #1b1b4d;
+  }
+  
+  /* Journal side */
+  .journal-side {
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  
+  /* Polaroid layout container */
+  .polaroid-group {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Each polaroid image */
+  .polaroid {
+    position: absolute;
+    width: 150px;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  /* Positioning each one uniquely */
+  .top-left {
+    top: 0;
+    left: 20px;
+    transform: rotate(-10deg);
+    z-index: 2;
+  }
+  
+  .top-right {
+    top: 0;
+    right: 20px;
+    transform: rotate(10deg);
+    z-index: 3;
+  }
+  
+  .bottom-left {
+    bottom: 10px;
+    left: 30px;
+    transform: rotate(-5deg);
+    z-index: 1;
+  }
+  
+  .bottom-right {
+    bottom: 10px;
+    right: 30px;
+    transform: rotate(5deg);
+    z-index: 2;
+  }
+  
+  /* Photo date style */
+  .photo-date {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-size: 0.9rem;
+    color: #333;
+    font-family: 'Caveat', cursive;
+  }
+
+  .journal-side small {
+    margin-top: 20px;
+    display: block;
+    font-size: 0.9rem;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Nav arrows */
+  .nav-arrow {
+    position: absolute;
+    top: 50%;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #1b1b4d;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+  
+  .nav-arrow.left {
+    left: 10px;
+  }
+  
+  .nav-arrow.right {
+    right: 10px;
+  }
+  

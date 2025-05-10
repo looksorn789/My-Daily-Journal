@@ -24,6 +24,18 @@ const Header = () => {
       </nav>
 
       <div className="menu-icon" onClick={toggleMenu}>☰</div>
+
+      {menuOpen && (
+        <div className="dropdown-menu">
+          <div className="theme-toggle">
+            <span>☀️</span> / <span>🌙</span>
+          </div>
+          <NavLink to="/profilesettings" onClick={toggleMenu}>Profile Settings</NavLink>
+          <NavLink to="/terms" onClick={toggleMenu}>Terms and Agreement</NavLink>
+          <NavLink to="/privacy" onClick={toggleMenu}>Privacy Policy</NavLink>
+          <NavLink to="/logout" onClick={toggleMenu}>Log Out</NavLink>
+        </div>
+      )}
     </header>
   );
 };

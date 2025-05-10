@@ -1,0 +1,122 @@
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .journal-container {
+    display: flex;
+    height: calc(100vh - 90px);
+    margin-top: 90px; /* Add this */
+    padding: 20px 40px;
+    gap: 30px;
+    background-color: #f2f6fd;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  
+  .sidebar,
+  .journal-entry,
+  .mood-selector {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 22%;
+    background-color: #dbeaf7;
+    color: #457b9d;
+    border-radius: 12px;
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+  .sidebar h3 {
+    font-size: 24px;
+    margin-bottom: 20px; /* Increase this value for more space */
+  }
+  
+  
+  /* Journal Entry */
+  .journal-entry {
+    background-color: #fffccf;
+    border-radius: 15px;
+    border: 4px solid #2c2c54;
+    padding: 30px 40px;
+    width: 56%;
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    line-height: 1.6;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    overflow-y: auto;
+  }
+  
+  /* Mood Selector */
+  .mood-selector {
+    width: 22%;
+    background-color: #bdd7ee;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    overflow-y: auto;
+  }
+  
+  .journal-entry h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .journal-entry small {
+    display: block;
+    text-align: center;
+    margin-top: auto;
+    font-style: italic;
+  }
+  
+  .sidebar ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  .sidebar li {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  
+  .mood-selector h4 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #1b1b4d;
+    line-height: 1.3;
+  }
+  
+  .emojis {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 28px;
+    align-items: center;
+  }
+  
+  .emoji-button {
+    background: none;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+    padding: 5px;
+    border-radius: 50%;
+  }
+  
+  .emoji-button:hover {
+    transform: scale(1.2);
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .emoji-button.selected {
+    background-color: #1b1b4d;
+    color: white;
+    transform: scale(1.3);
+  }
