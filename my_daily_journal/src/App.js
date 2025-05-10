@@ -7,6 +7,7 @@ import JournalEntries from './Pages/JournalEntries';
 import Calendar from './Pages/Calendar';
 import MoodBoard from './Pages/MoodBoard';
 import MyNotebook from './Pages/MyNotebook';
+import ProfilePage from './Pages/ProfilePage'
 import './css/App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/moodboard" element={<MoodBoard />} />
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/journalentries" element={<JournalEntries />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </BrowserRouter>
   );

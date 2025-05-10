@@ -1,13 +1,31 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import LogOutModal from "./LogOutModal";
 import "../css/Header.css";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  const handleLogoutClick = () => {
+    setMenuOpen(false);
+    setShowModal(true);
+  };
+  
+  const handleConfirmLogout = () => {
+    setShowModal(false);
+    // replace with actual logout logic
+    window.location.href = "/";
+  };
+  
+  const handleCancelLogout = () => {
+    setShowModal(false);
+  };
+
 
   return (
     <header className="header">
@@ -30,12 +48,17 @@ const Header = () => {
           <div className="theme-toggle">
             <span>☀️</span> / <span>🌙</span>
           </div>
-          <NavLink to="/profilesettings" onClick={toggleMenu}>Profile Settings</NavLink>
+          <NavLink to="/profile" onClick={toggleMenu}>Profile Settings</NavLink>
           <NavLink to="/terms" onClick={toggleMenu}>Terms and Agreement</NavLink>
           <NavLink to="/privacy" onClick={toggleMenu}>Privacy Policy</NavLink>
-          <NavLink to="/logout" onClick={toggleMenu}>Log Out</NavLink>
+          <button onClick={handleLogoutClick} className="logout-link">Log Out</button>
         </div>
       )}
+    <LogOutModal
+        isOpen={showModal}
+        onClose={handleCancelLogout}
+        onConfirm={handleConfirmLogout}
+      />
     </header>
   );
 };

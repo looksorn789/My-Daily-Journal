@@ -1,0 +1,120 @@
+.calendar-container {
+    display: flex;
+    margin-top: 90px;
+    padding: 30px 50px;
+    background-color: #e9f0fc;
+    font-family: 'Segoe UI', sans-serif;
+    height: calc(100vh - 90px);
+  }
+  
+  .calendar-section {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    width: 70%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .calendar-header h2 {
+    font-size: 32px;
+    color: #1b1b4d;
+  }
+  
+  .arrow {
+    font-size: 28px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #1b1b4d;
+  }
+  
+  .calendar-grid {
+    table-layout: fixed;
+    width: 100%;
+  }
+  
+  .calendar-grid th {
+    color: #777;
+    font-size: 14px;
+    padding: 10px 0;
+  }
+  
+  .calendar-grid td {
+    text-align: center;
+    padding: 30px 0;
+    font-size: 16px;
+    border: 1px solid #eee;
+    height: 80px;
+  }
+  
+  .calendar-grid td.highlight {
+    background-color: #d0e4f7;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  .sidebar-section {
+    margin-left: 30px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .todo-box,
+  .event-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  .todo-box h4,
+  .event-box h4 {
+    font-size: 16px;
+    color: #1b1b4d;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .todo-box ul,
+  .event-box ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .todo-box li,
+  .event-box li {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .todo-box li.completed {
+    text-decoration: line-through;
+    color: gray;
+  }
+  
+  .plus-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-top: 10px;
+    color: #1b1b4d;
+  }
+
+  .calendar-section {
+    width: 75%; /* increase if needed */
+  }
+  
