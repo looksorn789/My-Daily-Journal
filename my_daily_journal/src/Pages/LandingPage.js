@@ -1,7 +1,21 @@
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import "../css/LandingPage.css";
+import SignInModal from '../components/SignInModal';
+import SignUpModal from '../components/SignUpModal';
+import WelcomeModal from '../components/WelcomeModal';
 
 function LandingPage() {
+  const [isSignInOpen, setSignInOpen] = useState(false);
+  const [isSignUpOpen, setSignUpOpen] = useState(false);
+  const [isWelcomeModalOpen, setWelcomeModalOpen] = useState(false);
+
+  // Define the function to open the SignUpModal
+  const openSignUp = () => {
+    setSignUpOpen(true);
+    setWelcomeModalOpen(false); // Close the WelcomeModal
+  };
+
   return (
     <div className="landing-page">
       {/* Sticky Navbar */}
@@ -10,7 +24,7 @@ function LandingPage() {
           <img src="/images/notebook-icon.png" alt="Notebook Icon" className="navbar-icon" />
           <Link to="/" className="site-title">My DailyJournal</Link>
         </div>
-        <Link to="/home" className="cta-button">Start Journaling Today!</Link>
+        <Link to="#" className="cta-button" onClick={() => setWelcomeModalOpen(true)}>Start Journaling Today!</Link>
       </nav>
 
       {/* Intro Section */}
@@ -27,8 +41,8 @@ function LandingPage() {
             </p>
 
             <div className="intro-buttons">
-              <Link to="/signup" className="btn-signup">Sign Up</Link>
-              <Link to="/login" className="btn-login">Log In</Link>
+              <Link to="#" className="btn-signup" onClick={openSignUp}>Sign Up</Link>
+              <Link to="#" className="btn-login" onClick={() => setSignInOpen(true)}>Log In</Link>
             </div>
 
             <div className="disclaimer">
@@ -59,6 +73,20 @@ function LandingPage() {
         <img src="/images/track.png" alt="Habit Tracker" className="feature-img" />
         <h3 className="feature-text">Stay In Track!</h3>
       </section>
+
+      {/* Modals */}
+      <SignInModal isOpen={isSignInOpen} onClose={() => setSignInOpen(false)} />
+      <SignUpModal 
+        isOpen={isSignUpOpen} 
+        onClose={() => setSignUpOpen(false)} 
+        onOpenSignIn={setSignInOpen}
+      />
+      <WelcomeModal 
+        isOpen={isWelcomeModalOpen} 
+        onClose={() => setWelcomeModalOpen(false)} 
+        onOpenSignUp={openSignUp}
+        onOpenSignIn={() => setSignInOpen(true)}
+      />
     </div>
   );
 }
