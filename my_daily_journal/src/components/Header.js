@@ -29,10 +29,10 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div className="logo-section">
+      <NavLink to="/home" className="logo-section">
         <img src="/images/notebook-icon.png" alt="Notebook Logo" className="logo" />
         <span className="app-name">My DailyJournal</span>
-      </div>
+      </NavLink>
 
       <nav className={`nav-links ${menuOpen ? "show" : ""}`}>
         <NavLink to="/journalentries" className={({ isActive }) => isActive ? "active" : ""}>Journal Entries</NavLink>

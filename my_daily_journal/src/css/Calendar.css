@@ -118,3 +118,12 @@
     width: 75%; /* increase if needed */
   }
   
+  .input-new-item {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+}

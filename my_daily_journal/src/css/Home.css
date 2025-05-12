@@ -1,0 +1,35 @@
+.home-page {
+  background-color: #f0f4ff; /* light pastel background */
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  padding-top: 90px;
+}
+
+.home-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 80px;
+}
+
+.home-text h1 {
+  font-size: 48px;
+  color: #1b1b4d;
+  margin: 0;
+}
+
+.home-text h2 {
+  font-size: 36px;
+  color: #1b1b4d;
+  margin-top: 20px;
+}
+
+.user-name {
+  color: #999;
+  font-weight: normal;
+}
+
+.home-image img {
+  max-width: 500px;
+  height: auto;
+}
