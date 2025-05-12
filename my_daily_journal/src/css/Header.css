@@ -22,6 +22,15 @@
   z-index: 1000;
 }
 
+.header.dark {
+  background-color: rgb(35, 35, 39);
+  color: white;
+}
+
+.header.dark .nav-links a {
+  color: white;
+}
+
 /* Logo Section */
 .logo-section {
   display: flex;
@@ -39,7 +48,7 @@
 .app-name {
   font-weight: bold;
   font-size: 30px;
-  color: #1b1b4d;
+  color: #7171bd;
 }
 
 /* Navigation Links */

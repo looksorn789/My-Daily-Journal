@@ -145,3 +145,91 @@
     transform: scale(1.3);
   }
   
+  .flip-photo-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1200px;
+}
+
+.photo-flip {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  backface-visibility: hidden;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.photo-flip.visible {
+  opacity: 1;
+  z-index: 1;
+}
+
+.flip-animate {
+  animation: flipMood 0.5s ease-out forwards;
+}
+
+.moodboard-instructions {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.moodboard-instructions:hover {
+  background-color: #d5dce6;
+}
+
+.upload-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 32px;
+  color: #1b1b4d;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+  font-family: 'Caveat', cursive;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background-color: #fffccf;
+  border: 3px solid #1b1b4d;
+  padding: 30px 40px;
+  border-radius: 12px;
+  font-size: 24px;
+  color: #1b1b4d;
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+}
+
+@keyframes flipMood {
+  from {
+    transform: rotateY(90deg) rotateX(5deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0deg) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+

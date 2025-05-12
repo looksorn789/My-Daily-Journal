@@ -3,7 +3,7 @@
     display: flex;
     align-items: stretch;
     justify-content: center;
-    padding: 120px 30px 40px;
+    padding: 120px 80px 40px;
     background-color: #e9f0fc;
     position: relative;
     gap: 30px;
@@ -40,11 +40,7 @@
 
 .notebook-container::before,
 .notebook-container::after {
-    content: '';
-    width: 15px;
-    background-color: #1b1b4d;
-    border-radius: 20px;
-    margin: 0 5px;
+  display: none;
 }
 
 .notebook-container::between {
@@ -168,3 +164,4 @@
     opacity: 1;
   }
 }
+

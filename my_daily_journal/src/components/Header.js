@@ -1,34 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import LogOutModal from "./LogOutModal";
 import "../css/Header.css";
+import { ThemeContext } from "../context/ThemeContext";
 
 const Header = () => {
+  const { darkMode, toggleTheme } = useContext(ThemeContext);
   const [menuOpen, setMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
   const handleLogoutClick = () => {
     setMenuOpen(false);
     setShowModal(true);
   };
-  
-  const handleConfirmLogout = () => {
-    setShowModal(false);
-    // replace with actual logout logic
-    window.location.href = "/";
-  };
-  
-  const handleCancelLogout = () => {
-    setShowModal(false);
-  };
-
 
   return (
-    <header className="header">
+    <header className={`header ${darkMode ? "dark" : ""}`}>
       <NavLink to="/home" className="logo-section">
         <img src="/images/notebook-icon.png" alt="Notebook Logo" className="logo" />
         <span className="app-name">My DailyJournal</span>
@@ -45,7 +34,7 @@ const Header = () => {
 
       {menuOpen && (
         <div className="dropdown-menu">
-          <div className="theme-toggle">
+          <div className="theme-toggle" onClick={toggleTheme}>
             <span>☀️</span> / <span>🌙</span>
           </div>
           <NavLink to="/profile" onClick={toggleMenu}>Profile Settings</NavLink>
@@ -54,10 +43,11 @@ const Header = () => {
           <button onClick={handleLogoutClick} className="logout-link">Log Out</button>
         </div>
       )}
-    <LogOutModal
+
+      <LogOutModal
         isOpen={showModal}
-        onClose={handleCancelLogout}
-        onConfirm={handleConfirmLogout}
+        onClose={() => setShowModal(false)}
+        onConfirm={() => window.location.href = "/"}
       />
     </header>
   );

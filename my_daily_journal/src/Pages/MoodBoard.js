@@ -1,28 +1,79 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Header from "../components/Header";
 import "../css/MoodBoard.css";
 
 function MoodBoard() {
   const [selectedMood, setSelectedMood] = useState(null);
+  const [showLimitModal, setShowLimitModal] = useState(false);
+
   const moods = ["😀", "😊", "🙂", "😐", "🙁", "😢", "😠", "😖"];
+
+  const [photos, setPhotos] = useState([]); // start empty
+
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const fileInputRef = useRef(null);
+
+  const handleFlip = () => {
+    setPhotoIndex((prev) => (prev + 1) % photos.length);
+  };
+
+  const handleImageUpload = (event) => {
+  const files = Array.from(event.target.files);
+  const imageUrls = files.map((file) => URL.createObjectURL(file));
+
+  // Check if it exceeds the limit
+  if (photos.length + imageUrls.length > 4) {
+    setShowLimitModal(true);
+    // Hide modal after 2.5s
+    setTimeout(() => setShowLimitModal(false), 2500);
+    return;
+  }
+
+  setPhotos((prev) => [...prev, ...imageUrls]);
+  setPhotoIndex(0);
+  };
+
+  const triggerFileInput = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
 
   return (
     <div>
       <Header />
       <div className="moodboard-container">
-        <aside className="moodboard-instructions">
+        <aside className="moodboard-instructions" onClick={triggerFileInput}>
           <h3>Add 4 Pictures<br />Defining<br />Your Mood<br />Today!</h3>
           <button className="upload-icon">📷</button>
+          <input
+            type="file"
+            accept="image/*"
+            multiple
+            ref={fileInputRef}
+            onChange={handleImageUpload}
+            style={{ display: "none" }}
+          />
         </aside>
 
-        <main className="moodboard-canvas">
-          <div className="polaroid-group">
-            <img src="/images/polaroid-1.png" alt="Polaroid 1" className="polaroid top-left" />
-            <img src="/images/polaroid-2.png" alt="Polaroid 2" className="polaroid top-right" />
-            <img src="/images/polaroid-3.png" alt="Polaroid 3" className="polaroid bottom-left" />
-            <img src="/images/polaroid-4.png" alt="Polaroid 4" className="polaroid bottom-right" />
+        <main className="moodboard-canvas" onClick={photos.length > 0 ? handleFlip : undefined}>
+          <div className="flip-photo-container">
+            {photos.length === 0 ? (
+              <div className="upload-placeholder">Please Upload Your Photos</div>
+            ) : (
+              photos.map((img, i) => (
+                <img
+                  key={i}
+                  src={img}
+                  alt={`Mood ${i + 1}`}
+                  className={`photo-flip ${
+                    i === photoIndex ? "visible flip-animate" : "hidden"
+                  }`}
+                />
+              ))
+            )}
           </div>
-          <small className="photo-date">March 12, 2025</small>
+          {photos.length > 0 && <small className="photo-date">Today</small>}
         </main>
 
         <aside className="mood-selector">
@@ -40,8 +91,16 @@ function MoodBoard() {
           </div>
         </aside>
       </div>
+      {showLimitModal && (
+        <div className="modal-overlay">
+          <div className="modal-box">
+            <p>You can only upload up to 4 photos!</p>
+          </div>
+        </div>
+      )}
     </div>
   );
+  
 }
 
 export default MoodBoard;
