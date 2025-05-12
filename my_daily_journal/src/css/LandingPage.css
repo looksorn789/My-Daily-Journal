@@ -205,3 +205,64 @@
   margin: 0 auto;
   max-width: 800px;
 }
+
+/* === DARK MODE LANDING PAGE STYLING === */
+.dark-mode .landing-page {
+  background-color: #1c1c1c;
+  color: #f0f0f0;
+}
+
+.dark-mode .navbar {
+  background-color: #2a2a2a;
+  border-bottom: 1px solid #444;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .site-title {
+  color: #ffffff;
+}
+
+.dark-mode .cta-button {
+  background-color: #444;
+  color: #b8e0e6;
+}
+
+.dark-mode .cta-button:hover {
+  background-color: #5fbcc9;
+  color: #fff;
+}
+
+.dark-mode .intro-desc {
+  color: #b8e0e6;
+}
+
+.dark-mode .btn-signup,
+.dark-mode .btn-login {
+  background-color: #5fbcc9;
+  color: #fff;
+}
+
+.dark-mode .btn-signup:hover,
+.dark-mode .btn-login:hover {
+  background-color: white;
+  color: #5fbcc9;
+}
+
+.dark-mode .disclaimer {
+  color: #aaa;
+}
+
+.dark-mode .disclaimer-link {
+  color: #5fbcc9;
+}
+
+.dark-mode .disclaimer-link:hover {
+  color: #8de4ee;
+}
+
+.dark-mode .modal-content {
+  background-color: #333;
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+}
+

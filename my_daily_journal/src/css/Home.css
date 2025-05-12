@@ -1,5 +1,5 @@
 .home-page {
-  background-color: #f0f4ff; /* light pastel background */
+  background-color: inherit;
   min-height: 100vh;
   font-family: 'Segoe UI', sans-serif;
   padding-top: 90px;

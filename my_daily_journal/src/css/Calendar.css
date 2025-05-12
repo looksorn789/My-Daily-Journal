@@ -2,7 +2,7 @@
     display: flex;
     margin-top: 90px;
     padding: 30px 50px;
-    background-color: #e9f0fc;
+    background-color: inherit;
     font-family: 'Segoe UI', sans-serif;
     height: calc(100vh - 90px);
   }
@@ -126,4 +126,66 @@
   border-radius: 6px;
   font-size: 16px;
   box-sizing: border-box;
+}
+
+/* === DARK MODE STYLING === */
+.dark-mode .calendar-container {
+  background-color: #1c1c1c;
+  color: #e0e0e0;
+}
+
+.dark-mode .calendar-section {
+  background-color: #2b2b2b;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .calendar-header h2,
+.dark-mode .arrow {
+  color: #ffffff;
+}
+
+.dark-mode .calendar-grid th {
+  color: #bbbbbb;
+}
+
+.dark-mode .calendar-grid td {
+  border: 1px solid #444;
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+}
+
+.dark-mode .calendar-grid td.highlight {
+  background-color: #5c7c9c;
+  color: #ffffff;
+}
+
+.dark-mode .todo-box,
+.dark-mode .event-box {
+  background-color: #2b2b2b;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .todo-box h4,
+.dark-mode .event-box h4 {
+  color: #ffffff;
+  border-color: #555;
+}
+
+.dark-mode .todo-box li,
+.dark-mode .event-box li {
+  color: #cccccc;
+}
+
+.dark-mode .todo-box li.completed {
+  color: #888;
+}
+
+.dark-mode .plus-button {
+  color: #cccccc;
+}
+
+.dark-mode .input-new-item {
+  background-color: #1f1f1f;
+  border: 1px solid #555;
+  color: #ffffff;
 }

@@ -154,6 +154,35 @@
   animation: flipIn 0.4s ease-out forwards;
 }
 
+/* === DARK MODE NOTEBOOK STYLING === */
+.dark-mode .notebook-container {
+  background-color: #1f1f1f;
+}
+
+.dark-mode .notebook-page {
+  background-color: #3a3a2d; /* soft desaturated "paper" yellow for dark mode */
+  border-color: #8f8f66;
+  color: #f0f0d0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .journal-side {
+  color: #f0f0d0;
+}
+
+.dark-mode .journal-side small,
+.dark-mode .photo-date {
+  color: #ccc;
+}
+
+.dark-mode .nav-arrow {
+  color: #ccc;
+}
+
+.dark-mode .notebook-page::-webkit-scrollbar-thumb {
+  background-color: #666;
+}
+
 @keyframes flipIn {
   from {
     transform: rotateY(90deg) rotateX(5deg);
