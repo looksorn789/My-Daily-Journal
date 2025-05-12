@@ -75,11 +75,21 @@ function LandingPage() {
       </section>
 
       {/* Modals */}
-      <SignInModal isOpen={isSignInOpen} onClose={() => setSignInOpen(false)} />
+      <SignInModal
+        isOpen={isSignInOpen}
+        onClose={() => setSignInOpen(false)}
+        SignupModal={() => {
+          setSignInOpen(false);
+          setSignUpOpen(true);
+        }}
+      />
       <SignUpModal 
         isOpen={isSignUpOpen} 
         onClose={() => setSignUpOpen(false)} 
-        onOpenSignIn={setSignInOpen}
+        onOpenSignIn={() => {
+          setSignUpOpen(false);
+          setSignInOpen(true);
+        }}
       />
       <WelcomeModal 
         isOpen={isWelcomeModalOpen} 
