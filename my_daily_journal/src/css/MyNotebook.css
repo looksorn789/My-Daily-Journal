@@ -12,8 +12,8 @@
     gap: 0;
   }
   
-  /* Each notebook page (journal and photos) */
-  .notebook-page {
+/* Each notebook page (journal and photos) */
+.notebook-page {
     flex: 1;
     background-color: #fffccf;
     border: 5px solid #1b1b4d;
@@ -25,21 +25,21 @@
     justify-content: space-between;
     box-sizing: border-box;
     position: relative;
-    max-width: 500px;
-    max-height: 80vh;
+    max-width: none;
+    max-height: none;
     overflow-y: auto;
   }
 
-  .notebook-page::-webkit-scrollbar {
+.notebook-page::-webkit-scrollbar {
     width: 8px;
   }
-  .notebook-page::-webkit-scrollbar-thumb {
+.notebook-page::-webkit-scrollbar-thumb {
     background-color: #aaa;
     border-radius: 4px;
   }
 
-  .notebook-container::before,
-  .notebook-container::after {
+.notebook-container::before,
+.notebook-container::after {
     content: '';
     width: 15px;
     background-color: #1b1b4d;
@@ -47,65 +47,52 @@
     margin: 0 5px;
 }
 
-  .notebook-container::between {
+.notebook-container::between {
     content: '';
     width: 2px;
     background-color: #1b1b4d;
   }
   
-  /* Journal side */
-  .journal-side {
+/* Journal side */
+.journal-side {
     font-family: 'Caveat', cursive;
     font-size: 20px;
     line-height: 1.6;
   }
   
-  /* Polaroid layout container */
-  .polaroid-group {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
+.polaroid-group {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
   
-  /* Each polaroid image */
-  .polaroid {
-    position: absolute;
-    width: 150px;
-    height: auto;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  }
+/* Animation visibility */
+.polaroid {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: scale(0.95);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.polaroid.visible {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+
+.polaroid.hidden {
+  opacity: 0;
+  z-index: 0;
+}
+
   
-  /* Positioning each one uniquely */
-  .top-left {
-    top: 0;
-    left: 20px;
-    transform: rotate(-10deg);
-    z-index: 2;
-  }
-  
-  .top-right {
-    top: 0;
-    right: 20px;
-    transform: rotate(10deg);
-    z-index: 3;
-  }
-  
-  .bottom-left {
-    bottom: 10px;
-    left: 30px;
-    transform: rotate(-5deg);
-    z-index: 1;
-  }
-  
-  .bottom-right {
-    bottom: 10px;
-    right: 30px;
-    transform: rotate(5deg);
-    z-index: 2;
-  }
-  
-  /* Photo date style */
-  .photo-date {
+/* Photo date style */
+.photo-date {
     position: absolute;
     bottom: 10px;
     right: 20px;
@@ -114,7 +101,7 @@
     font-family: 'Caveat', cursive;
   }
 
-  .journal-side small {
+.journal-side small {
     margin-top: 20px;
     display: block;
     font-size: 0.9rem;
@@ -122,8 +109,8 @@
     text-align: center;
   }
   
-  /* Nav arrows */
-  .nav-arrow {
+/* Nav arrows */
+.nav-arrow {
     position: absolute;
     top: 50%;
     font-size: 6rem;
@@ -135,11 +122,49 @@
     z-index: 10;
   }
   
-  .nav-arrow.left {
+.nav-arrow.left {
     left: 10px;
   }
   
-  .nav-arrow.right {
+.nav-arrow.right {
     right: 10px;
   }
   
+.flip-photo-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+}
+
+.photo-flip {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 0.2s ease;
+}
+
+.photo-flip.visible {
+  opacity: 1;
+  z-index: 1;
+}
+
+.flip-animate {
+  animation: flipIn 0.4s ease-out forwards;
+}
+
+@keyframes flipIn {
+  from {
+    transform: rotateY(90deg) rotateX(5deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0deg) rotateX(0deg);
+    opacity: 1;
+  }
+}
