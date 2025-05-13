@@ -88,7 +88,21 @@ function MoodBoard({ selectedMood, setSelectedMood }) {
               ))
             )}
           </div>
-          {photos.length > 0 && <small className="photo-date">Today</small>}
+          {photos.length > 0 && (
+            <>
+              <small className="photo-date">Today</small>
+              <button
+                className="delete-photo-button"
+                onClick={(e) => {
+                  e.stopPropagation(); // prevent flip on click
+                  setPhotos(prev => prev.filter((_, i) => i !== photoIndex));
+                  setPhotoIndex(0); // reset index safely
+                }}
+              >
+                Delete Photo
+              </button>
+            </>
+          )}
         </main>
 
         <aside className="mood-selector">

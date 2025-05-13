@@ -2,15 +2,12 @@ import "../css/Home.css";
 import Header from "../components/Header";
 
 function Home() {
-  const userName = "Patrick"; // Replace with dynamic name from your auth if available
-
   return (
     <div className="home-page">
       <Header />
       <div className="home-content">
         <div className="home-text">
           <h1>Welcome back,</h1>
-          <h1><span className="user-name">({userName})</span>!</h1>
           <h2>Ready to<br />Journal Today?</h2>
         </div>
         <div className="home-image">
