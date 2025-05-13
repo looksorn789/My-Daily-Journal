@@ -4,10 +4,12 @@ import "../css/LandingPage.css";
 import SignInModal from '../components/SignInModal';
 import SignUpModal from '../components/SignUpModal';
 import WelcomeModal from '../components/WelcomeModal';
+import ForgotPasswordModal from '../components/ForgotPassword';
 
 function LandingPage() {
   const [isSignInOpen, setSignInOpen] = useState(false);
   const [isSignUpOpen, setSignUpOpen] = useState(false);
+  const [isForgotOpen, setForgotOpen] = useState(false);
   const [isWelcomeModalOpen, setWelcomeModalOpen] = useState(false);
 
   // Define the function to open the SignUpModal
@@ -78,6 +80,10 @@ function LandingPage() {
       <SignInModal
         isOpen={isSignInOpen}
         onClose={() => setSignInOpen(false)}
+        onForgotPassword={() => {
+          setSignInOpen(false);
+          setForgotOpen(true);
+        }}
         SignupModal={() => {
           setSignInOpen(false);
           setSignUpOpen(true);
@@ -90,6 +96,14 @@ function LandingPage() {
           setSignUpOpen(false);
           setSignInOpen(true);
         }}
+      />
+      <ForgotPasswordModal
+      isOpen={isForgotOpen}
+      onClose={() => setForgotOpen(false)}
+      Forgot={() => {
+        setForgotOpen(false)
+        setForgotOpen(true);
+      }}
       />
       <WelcomeModal 
         isOpen={isWelcomeModalOpen} 

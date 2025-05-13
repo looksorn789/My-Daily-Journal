@@ -4,7 +4,7 @@ import "../css/JournalEntries.css";
 
 function JournalEntries({ selectedMood, setSelectedMood, setJournalEntries, photos }) {
   const [journalTitle, setJournalTitle] = useState("Journal Title"); // Default title
-  const [journalEntry, setJournalEntry] = useState("Write your journal entry here..."); // Default entry
+  const [journalEntry, setJournalEntry] = useState("");
   const [journalDate, setJournalDate] = useState(new Date().toLocaleDateString()); // Set to current date
   const [showModal, setShowModal] = useState(false);
 
@@ -73,9 +73,10 @@ function JournalEntries({ selectedMood, setSelectedMood, setJournalEntries, phot
               style={{ fontSize: "30px", textAlign: "center", marginBottom: "20px", width: "100%" }} // Style for title input
             />
             <textarea
+              placeholder="Write your journal entry here..."
               value={journalEntry}
-              onChange={(e) => setJournalEntry(e.target.value)} // Update entry on change
-              style={{ width: "100%", height: "200px", fontSize: "20px", lineHeight: "1.6" }} // Style for entry textarea
+              onChange={(e) => setJournalEntry(e.target.value)}
+              style={{ width: "100%", height: "200px", fontSize: "20px", lineHeight: "1.6" }}
             />
             <button type="submit" className="save-button">Save Entry</button>
             <small>{journalDate}</small> {/* Display the current date */}
