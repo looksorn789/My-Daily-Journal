@@ -6,6 +6,7 @@ function JournalEntries({ selectedMood, setSelectedMood, setJournalEntries, phot
   const [journalTitle, setJournalTitle] = useState("Journal Title"); // Default title
   const [journalEntry, setJournalEntry] = useState("Write your journal entry here..."); // Default entry
   const [journalDate, setJournalDate] = useState(new Date().toLocaleDateString()); // Set to current date
+  const [showModal, setShowModal] = useState(false);
 
   const moods = ["😀", "😊", "🙂", "😐", "🙁", "😢", "😠", "😖"];
   
@@ -22,21 +23,26 @@ function JournalEntries({ selectedMood, setSelectedMood, setJournalEntries, phot
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const newEntry = {
-      title: journalTitle,
-      body: journalEntry,
-      date: journalDate,
-      mood: selectedMood,
-      photos: photos,
-    };
-    setJournalEntries((prevEntries) => [...prevEntries, newEntry]);
-    // Reset fields after submission
-    setJournalTitle("Journal Title");
-    setJournalEntry("Write your journal entry here...");
-    setJournalDate(new Date().toLocaleDateString());
-    setSelectedMood(null); // Reset mood selection
+  e.preventDefault();
+  const newEntry = {
+    title: journalTitle,
+    body: journalEntry,
+    date: journalDate,
+    mood: selectedMood,
+    photos: photos,
   };
+  setJournalEntries((prevEntries) => [...prevEntries, newEntry]);
+
+  // Reset fields
+  setJournalTitle("Journal Title");
+  setJournalEntry("Write your journal entry here...");
+  setJournalDate(new Date().toLocaleDateString());
+  setSelectedMood(null);
+
+  // Show modal
+  setShowModal(true);
+  setTimeout(() => setShowModal(false), 2000); // hide after 2 seconds
+};
 
   return (
     <div>
@@ -71,7 +77,7 @@ function JournalEntries({ selectedMood, setSelectedMood, setJournalEntries, phot
               onChange={(e) => setJournalEntry(e.target.value)} // Update entry on change
               style={{ width: "100%", height: "200px", fontSize: "20px", lineHeight: "1.6" }} // Style for entry textarea
             />
-            <button type="submit">Save Entry</button>
+            <button type="submit" className="save-button">Save Entry</button>
             <small>{journalDate}</small> {/* Display the current date */}
           </form>
         </main>
@@ -91,6 +97,11 @@ function JournalEntries({ selectedMood, setSelectedMood, setJournalEntries, phot
           </div>
         </aside>
       </div>
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-box">✅ Entry Saved!</div>
+        </div>
+      )}
     </div>
   );
 }
