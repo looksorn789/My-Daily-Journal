@@ -2,11 +2,22 @@ import React, { useState, useRef } from "react";
 import Header from "../components/Header";
 import "../css/MoodBoard.css";
 
-function MoodBoard() {
-  const [selectedMood, setSelectedMood] = useState(null);
+function MoodBoard({ selectedMood, setSelectedMood }) {
   const [showLimitModal, setShowLimitModal] = useState(false);
 
   const moods = ["😀", "😊", "🙂", "😐", "🙁", "😢", "😠", "😖"];
+
+  // Define mood colors
+  const moodColors = {
+    0: "#ffeb3b", // Happy
+    1: "#cddc39", // Content
+    2: "#ff9800", // Neutral
+    3: "#9e9e9e", // Sad
+    4: "#9c27b0", // Angry
+    5: "#3f51b5", // Depressed
+    6: "#f44336", // Frustrated
+    7: "#607d8b", // Confused
+  };
 
   const [photos, setPhotos] = useState([]); // start empty
 
@@ -18,19 +29,19 @@ function MoodBoard() {
   };
 
   const handleImageUpload = (event) => {
-  const files = Array.from(event.target.files);
-  const imageUrls = files.map((file) => URL.createObjectURL(file));
+    const files = Array.from(event.target.files);
+    const imageUrls = files.map((file) => URL.createObjectURL(file));
 
-  // Check if it exceeds the limit
-  if (photos.length + imageUrls.length > 4) {
-    setShowLimitModal(true);
-    // Hide modal after 2.5s
-    setTimeout(() => setShowLimitModal(false), 2500);
-    return;
-  }
+    // Check if it exceeds the limit
+    if (photos.length + imageUrls.length > 4) {
+      setShowLimitModal(true);
+      // Hide modal after 2.5s
+      setTimeout(() => setShowLimitModal(false), 2500);
+      return;
+    }
 
-  setPhotos((prev) => [...prev, ...imageUrls]);
-  setPhotoIndex(0);
+    setPhotos((prev) => [...prev, ...imageUrls]);
+    setPhotoIndex(0);
   };
 
   const triggerFileInput = () => {
@@ -56,7 +67,11 @@ function MoodBoard() {
           />
         </aside>
 
-        <main className="moodboard-canvas" onClick={photos.length > 0 ? handleFlip : undefined}>
+        <main
+          className="moodboard-canvas"
+          style={{ backgroundColor: selectedMood !== null ? moodColors[selectedMood] : "#fffccf" }}
+          onClick={photos.length > 0 ? handleFlip : undefined}
+        >
           <div className="flip-photo-container">
             {photos.length === 0 ? (
               <div className="upload-placeholder">Please Upload Your Photos</div>
@@ -100,7 +115,6 @@ function MoodBoard() {
       )}
     </div>
   );
-  
 }
 
 export default MoodBoard;

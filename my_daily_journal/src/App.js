@@ -9,19 +9,25 @@ import MoodBoard from './Pages/MoodBoard';
 import MyNotebook from './Pages/MyNotebook';
 import ProfilePage from './Pages/ProfilePage'
 import './css/App.css';
+import React, { useState } from "react";
+import Header from "./components/Header";
 
 function App() {
+  const [selectedMood, setSelectedMood] = useState(null);
+  const [journalEntries, setJournalEntries] = useState([]);
+
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/terms" element={<TermsAndService />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/notebook" element={<MyNotebook />} />
-        <Route path="/moodboard" element={<MoodBoard />} />
+        <Route path="/notebook" element={<MyNotebook journalEntries={journalEntries} selectedMood={selectedMood} />} />
+        <Route path="/moodboard" element={<MoodBoard selectedMood={selectedMood} setSelectedMood={setSelectedMood} />} />
         <Route path="/calendar" element={<Calendar />} />
-        <Route path="/journalentries" element={<JournalEntries />} />
+        <Route path="/journalentries" element={<JournalEntries selectedMood={selectedMood} setSelectedMood={setSelectedMood} setJournalEntries={setJournalEntries} />} />
         <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </BrowserRouter>

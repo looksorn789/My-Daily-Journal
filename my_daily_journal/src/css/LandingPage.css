@@ -107,7 +107,6 @@
 }
 
 .btn-signup, .btn-login {
-  padding-left: 50px;
   padding: 0.6rem 1.2rem;
   border-radius: 6px;
   font-weight: 600;
@@ -123,15 +122,11 @@
 .btn-signup {
   background-color: #94C5CC;
   color: white;
-  padding-left: 50px;
-  padding-right: 50px;
 }
 
 .btn-login {
   background-color: #94C5CC;
   color: white;
-  padding-left: 50px;
-  padding-right: 50px;
 }
 
 .disclaimer {
@@ -178,6 +173,7 @@
   margin-bottom: 7rem;
 }
 
+/* Modal styles */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -264,5 +260,43 @@
   background-color: #333;
   color: #fff;
   box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .intro-container {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    align-items: center; /* Center items */
+  }
+
+  .intro-left {
+    max-width: 100%; /* Allow full width on smaller screens */
+    padding-left: 0; /* Remove left padding */
+  }
+
+  .intro-buttons {
+    margin-left: 0; /* Center buttons on smaller screens */
+  }
+
+  .feature {
+    flex-direction: column; /* Stack feature items vertically */
+    align-items: center; /* Center feature items */
+  }
+
+  .feature-img {
+    width: 100%; /* Make feature images responsive */
+    max-width: 100%; /* Ensure images do not exceed container */
+  }
+
+  .feature-text {
+    font-size: 3rem; /* Adjust font size for smaller screens */
+    text-align: center; /* Center text */
+  }
+}
+
+@media (max-width: 480px) {
+  .feature-text {
+    font-size: 2.5rem; /* Further adjust font size for very small screens */
+  }
 }
 

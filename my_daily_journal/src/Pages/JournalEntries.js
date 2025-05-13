@@ -2,10 +2,41 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import "../css/JournalEntries.css";
 
-function JournalEntries() {
-  const [selectedMood, setSelectedMood] = useState(null);
+function JournalEntries({ selectedMood, setSelectedMood, setJournalEntries, photos }) {
+  const [journalTitle, setJournalTitle] = useState("Journal Title"); // Default title
+  const [journalEntry, setJournalEntry] = useState("Write your journal entry here..."); // Default entry
+  const [journalDate, setJournalDate] = useState(new Date().toLocaleDateString()); // Set to current date
 
   const moods = ["😀", "😊", "🙂", "😐", "🙁", "😢", "😠", "😖"];
+  
+  // Define mood colors
+  const moodColors = {
+    0: "#ffeb3b", // Happy
+    1: "#cddc39", // Content
+    2: "#ff9800", // Neutral
+    3: "#9e9e9e", // Sad
+    4: "#9c27b0", // Angry
+    5: "#3f51b5", // Depressed
+    6: "#f44336", // Frustrated
+    7: "#607d8b", // Confused
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newEntry = {
+      title: journalTitle,
+      body: journalEntry,
+      date: journalDate,
+      mood: selectedMood,
+      photos: photos,
+    };
+    setJournalEntries((prevEntries) => [...prevEntries, newEntry]);
+    // Reset fields after submission
+    setJournalTitle("Journal Title");
+    setJournalEntry("Write your journal entry here...");
+    setJournalDate(new Date().toLocaleDateString());
+    setSelectedMood(null); // Reset mood selection
+  };
 
   return (
     <div>
@@ -20,19 +51,29 @@ function JournalEntries() {
             <li>What made you smile today?</li>
             <li>What challenge did you face today, and how did you overcome it?</li>
             <li>What inspired you today?</li>
-            <li>What’s one thing you learned today?</li>
+            <li>What's one thing you learned today?</li>
             <li>How did you take care of yourself today?</li>
-            <li>What’s something you’re looking forward to tomorrow?</li>
+            <li>What's something you're looking forward to tomorrow?</li>
             <li>If you could change one thing about today, what would it be?</li>
           </ul>
         </aside>
 
-        <main className="journal-entry">
-          <h2>User’s Journal Title</h2>
-          <p>
-            Today was such a wonderful day! I woke up early and felt energized...
-          </p>
-          <small>March 12, 2025</small>
+        <main className="journal-entry" style={{ backgroundColor: selectedMood !== null ? moodColors[selectedMood] : "#fffccf" }}>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              value={journalTitle}
+              onChange={(e) => setJournalTitle(e.target.value)} // Update title on change
+              style={{ fontSize: "30px", textAlign: "center", marginBottom: "20px", width: "100%" }} // Style for title input
+            />
+            <textarea
+              value={journalEntry}
+              onChange={(e) => setJournalEntry(e.target.value)} // Update entry on change
+              style={{ width: "100%", height: "200px", fontSize: "20px", lineHeight: "1.6" }} // Style for entry textarea
+            />
+            <button type="submit">Save Entry</button>
+            <small>{journalDate}</small> {/* Display the current date */}
+          </form>
         </main>
 
         <aside className="mood-selector">
