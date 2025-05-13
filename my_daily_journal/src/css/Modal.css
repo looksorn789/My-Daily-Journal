@@ -90,3 +90,19 @@
 .link:hover {
   color: #7ab1bb; /* Change color on hover */
 }
+
+.btn-create, .btn-signin, .btn-close {
+  padding: 10px; /* Padding inside buttons */
+  background-color: #94C5CC; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Rounded corners for buttons */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition */
+  width: 100%; /* Make buttons full width */
+  margin-bottom: 10px; /* Space between buttons */
+}
+
+.btn-create:hover, .btn-signin:hover, .btn-close:hover {
+  background-color: #7ab1bb; /* Darker shade on hover */
+}
