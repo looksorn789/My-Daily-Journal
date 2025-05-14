@@ -1,9 +1,13 @@
 .profile-container {
-    display: flex;
-    padding: 100px 60px 40px;
-    background-color: #e9f0fc;
-    font-family: 'Segoe UI', sans-serif;
-    min-height: calc(100vh - 90px);
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 120px 80px 40px;
+  background-color: #e9f0fc;
+  position: relative;
+  gap: 30px;
+  height: 100vh;
+  box-sizing: border-box;
   }
   
   .profile-left {

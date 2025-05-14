@@ -7,8 +7,8 @@ function Home() {
       <Header />
       <div className="home-content">
         <div className="home-text">
-          <h1>Welcome back,</h1>
-          <h2>Ready to<br />Journal Today?</h2>
+          <h1>Welcome To<br />My DailyJournal,</h1>
+          <h1>Ready to<br />Journal Today?</h1>
         </div>
         <div className="home-image">
           <img src="/images/Journal_Home.png" alt="Open journal illustration" />

@@ -1,6 +1,7 @@
 /* Base layout */
 .landing-page {
-  background-color: #EEF3FF;
+  min-height: 100vh;
+  background-color: #eef3ff;
   font-family: 'Segoe UI', sans-serif;
   color: #000E29;
 }

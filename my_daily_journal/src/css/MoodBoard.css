@@ -1,11 +1,14 @@
 .moodboard-container {
-    display: flex;
-    height: calc(100vh - 90px);
-    margin-top: 90px;
-    padding: 20px 40px;
-    gap: 30px;
-    background-color: #e9f0fc;
-    font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 120px 80px 40px;
+  background-color: #e9f0fc;
+  position: relative;
+  gap: 30px;
+  height: 100vh;
+  box-sizing: border-box;
+  gap: 30;
   }
   
   .moodboard-instructions,

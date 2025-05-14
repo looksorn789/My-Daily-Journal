@@ -2,6 +2,7 @@ import React, { useRef, useState, useContext } from "react";
 import Header from "../components/Header";
 import "../css/ProfilePage.css";
 import { ThemeContext } from "../context/ThemeContext";
+import ForgotPasswordModal from "../components/ForgotPassword";
 
 function ProfilePage() {
   const fileInputRef = useRef(null);
@@ -9,13 +10,14 @@ function ProfilePage() {
   const [isEditing, setIsEditing] = useState(false);
   const [avatarUrl, setAvatarUrl] = useState("/images/jeff.jpg");
   const [formData, setFormData] = useState({
-    name: "User’s Name",
-    email: "User’s Email",
-    gender: "User’s Gender",
-    country: "User’s Country Location"
+    name: "User's Name",
+    email: "User's Email",
+    gender: "User's Gender",
+    country: "User's Country Location"
   });
 
   const [tempData, setTempData] = useState({ ...formData });
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleEditClick = () => {
     setTempData({ ...formData });
@@ -41,11 +43,15 @@ function ProfilePage() {
   };
 
   const handleFileChange = (e) => {
-  const file = e.target.files[0];
-  if (file) {
-    const imageUrl = URL.createObjectURL(file);
-    setAvatarUrl(imageUrl);
-  }
+    const file = e.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setAvatarUrl(imageUrl);
+    }
+  };
+
+  const handleResetPasswordClick = () => {
+    setIsModalOpen(true);
   };
 
   return (
@@ -102,10 +108,12 @@ function ProfilePage() {
 
           <div className="password-reset">
             <p>Want to Change Your Password?</p>
-            <button className="reset-btn">Reset Password</button>
+            <button className="reset-btn" onClick={handleResetPasswordClick}>Reset Password</button>
           </div>
         </div>
       </div>
+
+      <ForgotPasswordModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }

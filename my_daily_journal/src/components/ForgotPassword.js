@@ -24,12 +24,12 @@ const ForgotPasswordModal = ({ isOpen, onClose }) => {
 
         {emailSent ? (
           <>
-            <h1 className="modal-title">Check Your Email</h1>
+            <h1 className="modal-title">Check Your Email!</h1>
             <p className="modal-subtitle">Instructions have been sent to your email address.</p>
           </>
         ) : (
           <>
-            <h1 className="modal-title">Forgot Password</h1>
+            <h1 className="modal-title">Want to Reset Your Password?</h1>
             <p className="modal-subtitle">Enter your email to reset your password.</p>
             <form onSubmit={handleSubmit}>
               <input type="email" placeholder="Email" required />

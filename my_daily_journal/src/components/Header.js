@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import LogOutModal from "./LogOutModal";
 import "../css/Header.css";
 import { ThemeContext } from "../context/ThemeContext";
@@ -8,12 +8,19 @@ const Header = () => {
   const { darkMode, toggleTheme } = useContext(ThemeContext);
   const [menuOpen, setMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const location = useLocation(); // Get the current location
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   const handleLogoutClick = () => {
     setMenuOpen(false);
     setShowModal(true);
+  };
+
+  // Function to check if the current page is Terms or Privacy
+  const isTermsOrPrivacyPage = () => {
+    console.log("Current Path:", location.pathname); // Log the current path
+    return location.pathname === "/terms" || location.pathname === "/privacy";
   };
 
   return (
@@ -23,12 +30,15 @@ const Header = () => {
         <span className="app-name">My DailyJournal</span>
       </NavLink>
 
-      <nav className={`nav-links ${menuOpen ? "show" : ""}`}>
-        <NavLink to="/journalentries" className={({ isActive }) => isActive ? "active" : ""}>Journal Entries</NavLink>
-        <NavLink to="/moodboard" className={({ isActive }) => isActive ? "active" : ""}>Mood Board</NavLink>
-        <NavLink to="/notebook" className={({ isActive }) => isActive ? "active" : ""}>My Notebook</NavLink>
-        <NavLink to="/calendar" className={({ isActive }) => isActive ? "active" : ""}>Calendar</NavLink>
-      </nav>
+      {/* Only show the nav links if not on Terms or Privacy page */}
+      {!isTermsOrPrivacyPage() && (
+        <nav className={`nav-links ${menuOpen ? "show" : ""}`}>
+          <NavLink to="/journalentries" className={({ isActive }) => isActive ? "active" : ""}>Journal Entries</NavLink>
+          <NavLink to="/moodboard" className={({ isActive }) => isActive ? "active" : ""}>Mood Board</NavLink>
+          <NavLink to="/notebook" className={({ isActive }) => isActive ? "active" : ""}>My Notebook</NavLink>
+          <NavLink to="/calendar" className={({ isActive }) => isActive ? "active" : ""}>Calendar</NavLink>
+        </nav>
+      )}
 
       <div className="menu-icon" onClick={toggleMenu}>☰</div>
 
