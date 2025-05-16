@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/My-Daily-Journal/static/css/main.6ded20db.css",
+    "main.js": "/My-Daily-Journal/static/js/main.ace2b526.js",
+    "static/js/453.206437d9.chunk.js": "/My-Daily-Journal/static/js/453.206437d9.chunk.js",
+    "index.html": "/My-Daily-Journal/index.html",
+    "main.6ded20db.css.map": "/My-Daily-Journal/static/css/main.6ded20db.css.map",
+    "main.ace2b526.js.map": "/My-Daily-Journal/static/js/main.ace2b526.js.map",
+    "453.206437d9.chunk.js.map": "/My-Daily-Journal/static/js/453.206437d9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6ded20db.css",
+    "static/js/main.ace2b526.js"
+  ]
+}
