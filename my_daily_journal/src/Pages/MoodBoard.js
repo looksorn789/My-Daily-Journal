@@ -1,10 +1,11 @@
 import React, { useState, useRef } from "react";
 import Header from "../components/Header";
 import "../css/MoodBoard.css";
+import MoodBoardSaveModal from "../components/MoodBoardSaveModal";
 
 function MoodBoard({ selectedMood, setSelectedMood }) {
   const [showLimitModal, setShowLimitModal] = useState(false);
-
+  const [showSaveModal, setShowSaveModal] = useState(false);
   const moods = ["😀", "😊", "🙂", "😐", "🙁", "😢", "😠", "😖"];
 
   // Define mood colors
@@ -101,6 +102,26 @@ function MoodBoard({ selectedMood, setSelectedMood }) {
               >
                 Delete Photo
               </button>
+              <button
+                className="save-photo-button"
+                onClick={(e) => {
+                  e.stopPropagation();
+
+                  // (Optional) You can log or send the saved moodboard data here
+                  // Example: console.log("Saving mood:", { photos, selectedMood });
+
+                  setShowSaveModal(true);
+
+                  // Clear photos after a short delay so modal appears first
+                  setTimeout(() => {
+                    setShowSaveModal(false);
+                    setPhotos([]);
+                    setPhotoIndex(0);
+                  }, 1500);
+                }}
+              >
+                Save Mood
+              </button>
             </>
           )}
         </main>
@@ -127,6 +148,9 @@ function MoodBoard({ selectedMood, setSelectedMood }) {
           </div>
         </div>
       )}
+      {showSaveModal && (
+  <MoodBoardSaveModal isOpen={showSaveModal} onClose={() => setShowSaveModal(false)} />
+    )}
     </div>
   );
 }
