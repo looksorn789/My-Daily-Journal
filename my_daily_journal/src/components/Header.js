@@ -57,7 +57,9 @@ const Header = () => {
       <LogOutModal
         isOpen={showModal}
         onClose={() => setShowModal(false)}
-        onConfirm={() => window.location.href = "/"}
+        onConfirm={() => {localStorage.clear();
+          window.location.href = "/My-Daily-Journal/";
+        }}
       />
     </header>
   );
