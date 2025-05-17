@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from "./Pages/Home";
 import LandingPage from "./Pages/LandingPage";
 import TermsAndService from "./Pages/TermsAndService";
@@ -17,7 +17,7 @@ function App() {
   const [journalEntries, setJournalEntries] = useState([]);
 
   return (
-    <BrowserRouter>
+    <Router>
       <Header />
       <Routes>
         <Route path="/" element={<LandingPage />} />
@@ -30,7 +30,7 @@ function App() {
         <Route path="/journalentries" element={<JournalEntries selectedMood={selectedMood} setSelectedMood={setSelectedMood} setJournalEntries={setJournalEntries} />} />
         <Route path="/profile" element={<ProfilePage />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 
