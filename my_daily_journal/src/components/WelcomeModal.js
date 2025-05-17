@@ -12,7 +12,7 @@ const WelcomeModal = ({ isOpen, onClose, onOpenSignIn, onOpenSignUp }) => {
         <p className="modal-subtitle">Come Join Us Now By Signing Up Or Signing In With Your Email.</p>
         
         {/* Wrap buttons in divs to ensure they are on separate lines */}
-        <div>
+        <div className="modal-buttons">
           <button className="btn-create" onClick={() => { onOpenSignUp(); onClose(); }}>Create Your Account</button>
         </div>
         <div>
