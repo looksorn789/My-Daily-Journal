@@ -59,7 +59,7 @@ const Header = () => {
         onClose={() => setShowModal(false)}
         onConfirm={() => {
           localStorage.clear();
-          window.location.href = `${process.env.PUBLIC_URL}/`;
+          window.location.href = "/My-Daily-Journal/";
         }}
       />
     </header>
