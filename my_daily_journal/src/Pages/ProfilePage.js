@@ -8,7 +8,7 @@ function ProfilePage() {
   const fileInputRef = useRef(null);
   const { darkMode, toggleTheme } = useContext(ThemeContext);
   const [isEditing, setIsEditing] = useState(false);
-  const [avatarUrl, setAvatarUrl] = useState("/images/jeff.jpg");
+  const [avatarUrl, setAvatarUrl] = useState("https://looksorn789.github.io/My-Daily-Journal/images/jeff.jpg");
   const [formData, setFormData] = useState({
     name: "User's Name",
     email: "User's Email",

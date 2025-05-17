@@ -87,7 +87,7 @@ function MyNotebook() {
             {page.photos.map((photo, index) => (
               <img
                 key={index}
-                src={`/images/${photo}`}
+                src={`https://looksorn789.github.io/My-Daily-Journal/images/${photo}`}
                 alt={`Polaroid ${index + 1}`}
                 className={`photo-flip ${
                   index === activePhotoIndex ? "visible flip-animate" : "hidden"

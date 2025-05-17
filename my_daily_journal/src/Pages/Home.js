@@ -11,7 +11,7 @@ function Home() {
           <h1>Ready to<br />Journal Today?</h1>
         </div>
         <div className="home-image">
-          <img src="/images/Journal_Home.png" alt="Open journal illustration" />
+          <img src="https://looksorn789.github.io/My-Daily-Journal/images/Journal_Home.png" alt="Open journal illustration" />
         </div>
       </div>
     </div>

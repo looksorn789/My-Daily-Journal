@@ -23,7 +23,7 @@ function LandingPage() {
       {/* Sticky Navbar */}
       <nav className="navbar">
         <div className="navbar-left">
-          <img src="/images/notebook-icon.png" alt="Notebook Icon" className="navbar-icon" />
+          <img src="https://looksorn789.github.io/My-Daily-Journal/images/notebook-icon.png" alt="Notebook Icon" className="navbar-icon" />
           <Link to="/" className="site-title">My DailyJournal</Link>
         </div>
         <Link to="#" className="cta-button" onClick={() => setWelcomeModalOpen(true)}>Start Journaling Today!</Link>
@@ -35,7 +35,7 @@ function LandingPage() {
           {/* Left side content */}
           <div className="intro-left">
             <div className="intro-title">
-              <img src="/images/notebook-icon.png" alt="Logo" className="intro-logo" />
+              <img src="https://looksorn789.github.io/My-Daily-Journal/images/notebook-icon.png" alt="Logo" className="intro-logo" />
               <h2>My Daily Journal</h2>
             </div>
             <p className="intro-desc">
@@ -55,24 +55,24 @@ function LandingPage() {
 
           {/* Right side image */}
           <div className="intro-image-right">
-            <img src="/images/croissant.png" alt="Croissant and coffee" />
+            <img src="https://looksorn789.github.io/My-Daily-Journal/images/croissant.png" alt="Croissant and coffee" />
           </div>
         </div>
       </section>
 
       {/* Feature Sections */}
       <section className="feature">
-        <img src="/images/write.png" alt="Write" className="feature-img" />
+        <img src="https://looksorn789.github.io/My-Daily-Journal/images/write.png" alt="Write" className="feature-img" />
         <h3 className="feature-text">Write Your Thoughts About Today!</h3>
       </section>
 
       <section className="feature">
-        <img src="/images/scrap.png" alt="Mood Board" className="feature-img" />
+        <img src="https://looksorn789.github.io/My-Daily-Journal/images/scrap.png" alt="Mood Board" className="feature-img" />
         <h3 className="feature-text">Build Your Mood Board!</h3>
       </section>
 
       <section className="feature">
-        <img src="/images/track.png" alt="Habit Tracker" className="feature-img" />
+        <img src="https://looksorn789.github.io/My-Daily-Journal/images/track.png" alt="Habit Tracker" className="feature-img" />
         <h3 className="feature-text">Stay In Track!</h3>
       </section>
 

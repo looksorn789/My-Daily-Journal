@@ -26,7 +26,7 @@ const Header = () => {
   return (
     <header className={`header ${darkMode ? "dark" : ""}`}>
       <NavLink to="/home" className="logo-section">
-        <img src="/images/notebook-icon.png" alt="Notebook Logo" className="logo" />
+        <img src="https://looksorn789.github.io/My-Daily-Journal/images/notebook-icon.png" alt="Notebook Logo" className="logo" />
         <span className="app-name">My DailyJournal</span>
       </NavLink>
 
